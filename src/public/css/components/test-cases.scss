@@ -1,0 +1,56 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+.test-cases {
+  @import "components/test-case";
+
+  @include size(100%);
+  @include transition(width);
+
+  padding: 75px 0;
+
+  .header {
+    @include size(100%, auto);
+
+    background: $GRAY_6;
+    overflow: hidden;
+    padding: 1em 2em;
+
+    border: {
+      bottom: 1px solid $GRAY_4;
+    }
+
+    .date {
+      display: inline-block;
+
+      h2 {
+        @include normal();
+
+        font-size: 2em;
+        margin: 0;
+
+        span {
+          color: $GRAY_1;
+        }
+      }
+
+      span.static {
+        @include bold();
+
+        color: $GRAY_1;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        margin-left: 7px;
+        text-transform: uppercase;
+      }
+    }
+
+    span.id {
+      color: $GRAY_2;
+      font-size: 0.9em;
+      text-align: right;
+      float: right;
+    }
+  }
+}

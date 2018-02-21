@@ -1,0 +1,45 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+nav {
+  @include size(100%, 75px);
+
+  background: $NAVBAR_BACKGROUND;
+  display: block;
+  position: fixed;
+  padding: 0 2em;
+  z-index: 999;
+
+  border: {
+    bottom: $NAVBAR_BORDER_WIDTH solid $NAVBAR_BORDER_COLOR;
+  }
+
+  img.icon {
+    @include position(absolute, $top: 50%, $left: 50%);
+    @include size(45px, auto);
+
+    display: block;
+    text-align: center;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  .text {
+    display: block;
+    float: left;
+    vertical-align: middle;
+
+    h1 {
+      color: $WHITE;
+      margin: 0;
+      line-height: 75px;
+      padding: 0;
+      text-align: center;
+
+      font: {
+        weight: 600;
+        size: 2em;
+      }
+    }
+  }
+}

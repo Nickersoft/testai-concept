@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Demo | Test.ai
+    link(rel="icon" type="image/png" href="http://www.test.ai/static/favicon_blue.png")
+    link(href='css/main.css', rel='stylesheet')
+  body
+    #app(":class"="{ 'with-sidebar': show_sidebar }")
+      div.loader-container(v-if="loading")
+          div.loader
+      div(v-else)
+        nav
+          a(href="http://test.ai", target="_blank")
+            img.icon(src="/img/icon.svg")
+          .text
+            h1 {{name}}
+        .sidebar
+          section.info
+            .step Step {{step_index + 1}}
+            h1 {{step_name}}
+          section.times
+            h2 Launch Times
+            exec-list(":data"="launch_times", unit="ms")
+          section.memory
+            h2 Memory Usage
+            exec-list(":data"="memory", unit="B")
+          section.cpu
+            h2 CPU Usage
+            exec-list(":data"="cpu", unit="MB")
+          section.screenshot
+            h2 Screenshot
+            img.screenshot("v-if"="show_sidebar", ":src"="'/img/' + screenshot")
+        .test-cases
+          .header
+            .date
+              span.static Tests from
+              h2 {{moment(timestamp).format('MMMM Do, YYYY')}}
+                span &nbsp;at {{moment(timestamp).format('h:mm a')}}
+            span.id Test ID: {{id}}
+          test-case(
+            "@show"="showInfo"
+            "v-for"="(test_case, index) in test_cases"
+            ":test_case"="test_case"
+            ":index"="index"
+            ":key"="index"
+          )
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js')
+    script(src='/js/components.js')
+    script(src='/js/main.js')

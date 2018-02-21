@@ -1,0 +1,26 @@
+@import "variables";
+
+@mixin size($width: auto, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin transition($properties) {
+  transition: $properties 0.15s ease-in-out;
+}
+
+@mixin normal() {
+  font-weight: $WEIGHT_NORMAL;
+}
+
+@mixin bold() {
+  font-weight: $WEIGHT_BOLD;
+}

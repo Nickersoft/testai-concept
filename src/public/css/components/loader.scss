@@ -1,0 +1,35 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+.loader-container {
+  @include size(100%);
+
+  .loader {
+    @include size(76px);
+    @include position(absolute, $top: 50%, $left: 50%);
+
+    display: block;
+    border: 8px solid $PRIMARY_MED;
+    border-bottom: 8px solid transparent;
+    border-radius: 200px;
+    margin: -38px 0 0 -38px;
+
+    animation: {
+      name: rotate;
+      duration: 800ms;
+      timing-function: linear;
+      iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

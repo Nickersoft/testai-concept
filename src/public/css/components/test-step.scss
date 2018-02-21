@@ -1,0 +1,76 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+.test-step {
+  @include size(175px, auto);
+
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+
+  margin: {
+    top: 1em;
+    right: 0.5em;
+    bottom: 1em;
+    left: calc(0.5em + 60px)
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child:after {
+    border: none;
+  }
+
+  &:hover {
+    & > img {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      opacity: 0.75;
+    }
+
+    & > h3 {
+      color: $GRAY_2;
+    }
+  }
+
+  &:active {
+    & > img {
+      transform: translateY(-4px) scale(0.99);
+    }
+  }
+
+  &:after {
+    @include size(0, 0);
+    @include position(absolute, $top: 35%, $right: (-1 * $ARROW_SIZE) - ($ARROW_MARGIN * 2));
+
+    content: "";
+    display: block;
+
+    border: {
+      top: $ARROW_SIZE solid transparent;
+      bottom: $ARROW_SIZE solid transparent;
+      left: $ARROW_SIZE solid $ARROW_COLOR;
+    }
+  }
+
+  h3 {
+    @include normal();
+    @include transition(all);
+
+    color: $GRAY_5;
+    font-size: 0.9em;
+    margin: 10px 0 0;
+    text-align: center;
+  }
+
+  img {
+    @include size(100%, auto);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease-in-out;
+  }
+}

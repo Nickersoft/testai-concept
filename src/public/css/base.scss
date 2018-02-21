@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900");
+@import "util/mixins";
+@import "util/palette";
+@import "util/variables";
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html,
+body {
+  @include size(100%, 100%);
+
+  color: $GRAY_0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $GRAY_7;
+  font-family: "Source Sans Pro", Helvetica Neue, Arial, sans-serif;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+#app {
+  @include size(100%);
+
+  &.with-sidebar {
+    .test-cases {
+      width: calc(100% - #{$SIDEBAR_WIDTH});
+    }
+
+    .sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+.pull-right {
+  float: right;
+}

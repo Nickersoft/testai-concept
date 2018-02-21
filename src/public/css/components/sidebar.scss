@@ -1,0 +1,60 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+.sidebar {
+  @include normal();
+  @include position(fixed, $right: 0, $bottom: 0);
+  @include size($SIDEBAR_WIDTH, calc(100% - (#{$NAVBAR_HEIGHT} + #{$NAVBAR_BORDER_WIDTH})));
+  @include transition(transform);
+
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  float: right;
+  font-size: 1em;
+  padding: 0 2em 2em;
+  transform: translateX(100%);
+  overflow: scroll;
+
+  h1 {
+    @include bold();
+
+    font-size: 2em;
+    margin: 0 0 10px;
+  }
+
+  h2 {
+    @include normal();
+
+    font-size: 1.5em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li span {
+      color: $GRAY_1;
+    }
+  }
+
+  img.screenshot {
+    width: 100%;
+  }
+
+  .step {
+    @include bold();
+
+    color: $GRAY_1;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin: {
+      left: 2px;
+      top: 25px;
+    }
+  }
+}
+

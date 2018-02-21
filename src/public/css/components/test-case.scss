@@ -1,0 +1,79 @@
+@import "../util/mixins";
+@import "../util/palette";
+@import "../util/variables";
+
+.test-case {
+  @import "components/test-step";
+
+  padding: 1em 2em 1em;
+
+  .header {
+    background: none;
+    border-bottom: 1px solid $GRAY_4;
+    padding: 0.75em 0;
+
+    .text {
+      display: inline-block;
+      vertical-align: middle;
+
+      h2 {
+        @include bold();
+
+        font-size: 1.25em;
+        margin: 0;
+        border: none;
+        padding: 0;
+      }
+
+      .steps-count {
+        display: inline-block;
+        color: $GRAY_2;
+      }
+
+      span.separator {
+        @include size(1px, 1em);
+
+        background: $GRAY_4;
+        display: inline-block;
+        margin: 0 2px;
+        vertical-align: middle;
+      }
+      span.status {
+        color: $STATUS_NONE;
+        display: inline-block;
+
+        &.passed {
+          color: $STATUS_PASSED;
+        }
+
+        &.failed {
+          color: $STATUS_FAILED;
+        }
+      }
+    }
+
+    div.status {
+      @include size(10px);
+
+      background: $STATUS_NONE;
+      display: inline-block;
+      vertical-align: middle;
+
+      border: {
+        radius: 100px;
+      }
+
+      margin: {
+        right: 10px;
+      }
+
+      &.failed {
+        background-color: $STATUS_FAILED;
+      }
+
+      &.passed {
+        background-color: $STATUS_PASSED;
+      }
+    }
+  }
+}
