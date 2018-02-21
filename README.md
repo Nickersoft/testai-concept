@@ -36,6 +36,9 @@ Also, you'll notice this repo has very few commits. It's not that I don't use Gi
 repos, it's just that I forgot to set up Git before starting this project and by the time I finished it was too late. 
 If you need a better idea of my Git commit practices just have a look at [my other repos](https://github.com/Nickersoft).
 
+One last thing: this site isn't responsive. For the sake of time, I didn't bother writing media queries. That said, I 
+have a fair understanding of what a mobile version of this site may look like and how to achieve it.
+
 ## Directory Structure
 This is pretty self-explanatory, but just to have a formal write-up:
 
