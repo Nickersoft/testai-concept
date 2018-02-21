@@ -5,6 +5,7 @@ const helmet = require('helmet');
 
 const router = require('./router');
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Initialize view engine (Pug)
 app.set('views', path.join(__dirname, '/views'));
@@ -20,7 +21,7 @@ app.use(harp.mount(__dirname + '/public'));
 app.use(router);
 
 // Start server
-app.listen(3000, function(err) {
+app.listen(port, function(err) {
   if (err) console.error(err);
-  console.log('Server listening on port 3000.');
+  console.log(`Server listening on port ${port}.`);
 });

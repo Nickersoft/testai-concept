@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:9-alpine
 
 # Caches node_modules to speed up build time
 ADD package.json /tmp/package.json
@@ -11,4 +11,4 @@ WORKDIR /server
 
 # Expose the port and run it
 EXPOSE 3000
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]
